@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/QU-Beyond-Challenge/.vs/QU-Beyond-Challenge/v16
+/QU-Beyond-Challenge/BLL/bin/Debug/netstandard2.0
+/QU-Beyond-Challenge/BLL/obj
+/QU-Beyond-Challenge/QU-Beyond-Challenge/bin/Debug/netcoreapp3.1
+/QU-Beyond-Challenge/QU-Beyond-Challenge/obj/Debug/netcoreapp3.1
+/QU-Beyond-Challenge/QU-Beyond-Challenge/obj
