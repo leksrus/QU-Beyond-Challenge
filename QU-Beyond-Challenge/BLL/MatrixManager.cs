@@ -43,7 +43,7 @@ namespace BLL
 
             // Search word in all 8 directions  
             // starting from (row,col)  
-            for (int direction = 0; direction < 2; direction++)
+            for (var direction = 0; direction < 2; direction++)
             {
                 // Initialize starting point  
                 // for current direction  
