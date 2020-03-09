@@ -19,7 +19,7 @@ namespace Tests
         }
 
         [Fact]
-        public void FindAllWordsEmpty()
+        public void FindAllWordsReturnEmptyList()
         {
             var wordFinder = new WordFinder(GetMatrix());
             var wordSteam = GetWordsStreamTwo();
@@ -57,8 +57,7 @@ namespace Tests
             return new List<string>
             {
                 { "all" },
-                { "snow" },
-                { "payne" },
+                { "snow" }
             };
         }
 

@@ -7,7 +7,7 @@ namespace Tests
     public class MatrixManagerUnitTest
     {
         [Fact]
-        public void MatrixCreationAllData()
+        public void MatrixCreationWithAllData()
         {
             var matrixManager = new MatrixManager(5, 5);
             var matrix = GetMatrixAllData();
@@ -19,7 +19,7 @@ namespace Tests
 
 
         [Fact]
-        public void MatrixCreationEmptyList()
+        public void MatrixCreationWithEmptyList()
         {
             var matrixManager = new MatrixManager(5, 5);
             var matrix = new List<string>();
@@ -29,7 +29,7 @@ namespace Tests
         }
 
         [Fact]
-        public void MatrixCreationColumnsCheck()
+        public void MatrixCreationIfColumnsLessCheck()
         {
             var matrixManager = new MatrixManager(5, 5);
             var matrix = GetMatrixLessColumns();
@@ -39,7 +39,7 @@ namespace Tests
         }
 
         [Fact]
-        public void MatrixCreationRowsCheck()
+        public void MatrixCreationIfRowsLessCheck()
         {
             var matrixManager = new MatrixManager(5, 5);
             var matrix = GetMatrixLessRows();
@@ -49,7 +49,7 @@ namespace Tests
         }
 
         [Fact]
-        public void WordSearchFirstRowNotExist()
+        public void WordSearchInFirstRowNotExist()
         {
             var matrixManager = new MatrixManager(5, 5);
             var matrix = GetExpectedMatrixAllData();
@@ -61,7 +61,7 @@ namespace Tests
         }
 
         [Fact]
-        public void WordSearchFirstRowExist()
+        public void WordSearchInFirstRowExist()
         {
             var matrixManager = new MatrixManager(5, 5);
             var matrix = GetExpectedMatrixAllData();
