@@ -6,6 +6,6 @@ namespace BLL.Interfaces
     {
         char[,] GetMatrix(IEnumerable<string> matrix);
 
-        bool SearchWord(char[,] grid, int row, int col, string word);
+        bool SearchWordExistence(char[,] grid, int row, int col, string word);
     }
 }

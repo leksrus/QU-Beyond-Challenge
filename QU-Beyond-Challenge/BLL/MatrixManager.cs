@@ -1,27 +1,39 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using BLL.Interfaces;
 
 namespace BLL
 {
     public class MatrixManager : IMatrixManager
     {
-        private const int Rows = 64;
+        private readonly int _rows;
 
-        private const int Columns = 64;
+        private readonly int _columns;
 
         private readonly int[] _x = { 0, 1 };
 
-        private readonly int[] _y = { -1, 0 };
+        private readonly int[] _y = { 1, 0 };
 
+        public MatrixManager(int rows, int columns)
+        {
+            _rows = rows;
+            _columns = columns;
+        }
 
         public char[,] GetMatrix(IEnumerable<string> matrix)
         {
-            var charMatrix = new char[Rows, Columns];
+            if (!matrix.Any() || _columns != matrix.Count())
+                return null;
+
+            var charMatrix = new char[_rows, _columns];
             var colIndex = 0;
 
             foreach (var row in matrix)
             {
                 var rowLength = row.Length;
+
+                if (_rows != rowLength)
+                    return null;
 
                 for (var i = 0; i < rowLength; i++)
                     charMatrix[colIndex, i] = row[i];
@@ -32,42 +44,29 @@ namespace BLL
             return charMatrix;
         }
 
-        public bool SearchWord(char[,] grid, int row, int col, string word)
+        public bool SearchWordExistence(char[,] grid, int row, int col, string word)
         {
-            // If first character of word doesn't match  
-            // with given starting point in grid.  
             if (grid[row, col] != word[0])
                 return false;
 
             var len = word.Length;
 
-            // Search word in all 8 directions  
-            // starting from (row,col)  
             for (var direction = 0; direction < 2; direction++)
             {
-                // Initialize starting point  
-                // for current direction  
-                int k, rd = row + _x[direction], cd = col + _y[direction];
+                int k, rowDir = row + _x[direction], colDir = col + _y[direction];
 
-                // First character is already checked,  
-                // match remaining characters  
                 for (k = 1; k < len; k++)
                 {
-                    // If out of bound break  
-                    if (rd >= Rows || rd < 0 || cd >= Columns || cd < 0)
+                    if (rowDir >= _rows || rowDir < 0 || colDir >= _columns || colDir < 0)
                         break;
 
-                    // If not matched, break  
-                    if (grid[rd, cd] != word[k])
+                    if (grid[rowDir, colDir] != word[k])
                         break;
 
-                    // Moving in particular direction  
-                    rd += _x[direction];
-                    cd += _y[direction];
+                    rowDir += _x[direction];
+                    colDir += _y[direction];
                 }
 
-                // If all character matched, then value of k 
-                // must be equal to length of word  
                 if (k == len)
                     return true;
             }
