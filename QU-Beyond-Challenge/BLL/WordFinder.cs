@@ -8,9 +8,12 @@ namespace BLL
     {
         private readonly IEnumerable<string> _matrix;
 
+        private readonly IMatrixManager _matrixManager;
+
         public WordFinder(IEnumerable<string> matrix)
         {
             _matrix = matrix;
+            _matrixManager = new MatrixManager();
         }
 
         public IEnumerable<string> Find(IEnumerable<string> wordStream)
