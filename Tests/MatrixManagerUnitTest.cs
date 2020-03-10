@@ -73,42 +73,27 @@ namespace Tests
         }
 
         [Fact]
-        public void WordSearchDuplicate()
+        public void WordSearchInFirstRowLastColumn()
         {
             var matrixManager = new MatrixManager(5, 5);
             var matrix = GetExpectedMatrixAllData();
             var word = "all";
-            var count = 0;
 
-            for (var i = 0; i < 5; i++)
-            {
-                for (var j = 0; j < 5; j++)
-                {
-                    var result = matrixManager.SearchWordExistence(matrix, i, j, word);
+            var result = matrixManager.SearchWordExistence(matrix, 0, 4, word);
 
-                    if (result)
-                        count++;
-                }
-            }
-
-            Assert.True(count == 2);
+            Assert.True(result);
         }
 
         [Fact]
-        public void WordSearchNotExist()
+        public void WordSearchInSecondRowFirstColumn()
         {
             var matrixManager = new MatrixManager(5, 5);
             var matrix = GetExpectedMatrixAllData();
-            var word = "payne";
-            var result = false;
+            var word = "all";
 
-            for (var i = 0; i < 5; i++)
-            {
-                for (var j = 0; j < 5; j++)
-                    result = matrixManager.SearchWordExistence(matrix, i, j, word);
-            }
+            var result = matrixManager.SearchWordExistence(matrix, 1, 0, word);
 
-            Assert.False(result);
+            Assert.True(result);
         }
 
         private IEnumerable<string> GetMatrixAllData()
