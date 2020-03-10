@@ -5,7 +5,7 @@ using System.Linq;
 using BLL;
 using Microsoft.Extensions.Configuration;
 
-namespace QU_Beyond_Challenge
+namespace QU_Beyond_Console
 {
     class Program
     {
